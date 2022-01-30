@@ -3,17 +3,19 @@ const fs = require('fs');
 const savedNotes = JSON.parse(fs.readFileSync('./db/db.json'));
 
 
+
+
 router.get('/notes/', (req, res) => {
   res.json(savedNotes);
   // res.json(savedNotes[req.params.id])
 });
 
-router.get('/notes/:id', (req,res) => {
-  res.json(notes[req.params.id]);
-})
+// router.get('/notes/:id', (req,res) => {
+//   res.json(notes[req.params.id]);
+//   // module.id = nanoid()
+// })
 
 router.post('/notes', (req, res) => {
-  // this way saves the notes but can't edit or delete
     let pushedNotes = req.body;
     savedNotes.push(pushedNotes);
     console.log('Saved!')
